@@ -98,11 +98,25 @@ console.log(scene); // Now the cubeMesh is the children of scene.
 
 // Initialising the Camera
 
-const camera = new THREE.PerspectiveCamera(
-    100, // FOV
-    window.innerWidth/window.innerHeight, // Aspect Ratio
-    0.5,// Nearest distance limit
-    200 // Farthest distance limit
+// const camera = new THREE.PerspectiveCamera(
+//     100, // FOV
+//     window.innerWidth/window.innerHeight, // Aspect Ratio
+//     0.5,// Nearest distance limit
+//     200 // Farthest distance limit
+// )
+
+
+// Orthographic Camera Example Code
+
+const aspectRatio = window.innerWidth/window.innerHeight
+
+const camera = new THREE.OrthographicCamera(
+    -1*aspectRatio,
+    1*aspectRatio,
+    1,
+    -1,
+    0.1,
+    200
 )
 
 // FOV => The Feild of view upto which the camera can see inside a scene,
@@ -187,3 +201,8 @@ renderer.setSize(window.innerWidth,innerHeight);
 
 controls.enableDamping = true;
 controls.autoRotate = true;
+
+
+
+
+// https://rohan-katyal.github.io/ThreeJs-course-build-version/index.html
